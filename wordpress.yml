@@ -15,19 +15,21 @@
 #######################################################################
 
   - name: Installing Complete LampStack
-    yum: name={{ item }} state=present
-    with_items:
-    - php71
-    - mysql55-server
-    - php71-mysqlnd
-    - php71-mbstring
-    - MySQL-python27
-
+    yum: 
+     name: 
+      - php71
+      - mysql55-server
+      - php71-mysqlnd
+      - php71-mbstring
+      - MySQL-python27
+     state: restarted
+     
   - name: Restarting Lamp-Stack.
-    service: name={{ item }} state=restarted enabled=yes
-    with_items:
-    - mysqld
-
+    service: 
+     name: state=restarted enabled=yes
+      - mysqld
+     state: restarted
+     enabled: yes
 
 #######################################################################
 # Configuring Mysql And Creating Necessary User,Database for wordpress
@@ -85,8 +87,8 @@
   - name: Update WordPress config file
     lineinfile:
       dest: "/var/www/html/wp-config.php"
-      regexp: "{{ item.regexp }}"
-      line: "{{ item.line }}"
+      regexp: "{{ name.regexp }}"
+      line: "{{ name.line }}"
     with_items:
      - {'regexp': "define\\('DB_NAME', '(.)+'\\);", 'line': "define('DB_NAME', '{{wordpress_db}}');"}
      - {'regexp': "define\\('DB_USER', '(.)+'\\);", 'line': "define('DB_USER', '{{wordpress_user}}');"}
@@ -98,7 +100,7 @@
 #######################################################################
 
   - name: Restarting LampStack.
-    service: name={{ item }} state=restarted
-    with_items:
-    - mysqld
+    service: name=mysqld state=restarted
+    
+    
     
