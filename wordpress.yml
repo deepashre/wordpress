@@ -1,13 +1,13 @@
 ---
 - hosts: webserver
   become: yes
-  gather_facts: no
+  gather_facts: false
   vars:
    mysql_root_password: mysqlroot123
    wordpress_db: wordpress
    wordpress_user: wpuser
    wordpress_password: password123
-
+   ansible_python_interpreter: "{{ ansible_playbook_python }}"
   tasks:
 
 #######################################################################
