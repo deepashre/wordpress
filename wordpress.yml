@@ -22,7 +22,7 @@
       - php71-mysqlnd
       - php71-mbstring
       - MySQL-python27
-     state: restarted
+     state: present
      
   - name: Restarting Lamp-Stack.
     service: 
