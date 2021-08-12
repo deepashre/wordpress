@@ -17,7 +17,6 @@
   - name: Installing Complete LampStack
     yum: name={{ item }} state=present
     with_items:
-    - httpd24
     - php71
     - mysql55-server
     - php71-mysqlnd
@@ -28,7 +27,6 @@
     service: name={{ item }} state=restarted enabled=yes
     with_items:
     - mysqld
-    - httpd
 
 
 #######################################################################
