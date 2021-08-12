@@ -17,7 +17,6 @@
   - name: Installing Complete LampStack
     yum: 
      name: 
-      - php71
       - mysql55-server
       - php71-mysqlnd
       - php71-mbstring
