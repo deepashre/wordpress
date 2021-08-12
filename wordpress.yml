@@ -7,7 +7,6 @@
    wordpress_db: wordpress
    wordpress_user: wpuser
    wordpress_password: password123
-   ansible_python_interpreter: "{{ ansible_playbook_python }}"
   tasks:
 
 #######################################################################
