@@ -5,7 +5,7 @@
         remote_src: yes
         creates: "/var/www/{{ http_host }}/wordpress"
  
-    - name: Set ownership
+  - name: Set ownership
       file:
         path: "/var/www/{{ http_host }}"
         state: directory
