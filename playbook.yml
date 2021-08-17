@@ -8,7 +8,11 @@
     - vars/default.yml
 
   tasks:
-        
+    - name: remove apt lock file
+      file:
+        state: absent
+        path: "/var/lib/dpkg/lock"
+  
     - name: Install prerequisites
       apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
       tags: [ system ]
