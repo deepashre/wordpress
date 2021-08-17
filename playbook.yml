@@ -80,7 +80,7 @@
         host_all: yes
         state: absent
         login_user: root
-        login_password: "{{ mysql_root_password }}"
+        login_password: "password"
       tags: [ mysql ]
 
     - name: Remove the MySQL test database
