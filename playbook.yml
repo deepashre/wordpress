@@ -70,7 +70,6 @@
         name: root
         host_all: yes
         password: "{{ mysql_root_password }}"
-        update_password: "on_create"
         login_unix_socket: /var/run/mysqld/mysqld.sock
       tags: [ mysql, mysql-root ]
 
