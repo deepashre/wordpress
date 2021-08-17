@@ -70,7 +70,6 @@
 
     - name: Remove all anonymous user accounts
       mysql_user:
-      become: yes
         name: ''
         state: absent
         login_user: root
