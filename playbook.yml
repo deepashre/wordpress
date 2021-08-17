@@ -77,11 +77,10 @@
     - name: Remove all anonymous user accounts
       mysql_user:
         name: ''
-        host_all: yes
         state: absent
         update_password: "on_create"
-        login_user: ''
-        login_password: "password"
+        login_user: root
+        login_password: "{{ mysql_password }}"
       tags: [ mysql ]
 
     - name: Remove the MySQL test database
