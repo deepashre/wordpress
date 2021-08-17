@@ -54,6 +54,8 @@
     - name: Disable default Apache site
       shell: /usr/sbin/a2dissite 000-default.conf
       notify: Restart Apache
+      sleep: 5
+      delay: 5
       tags: [ apache ]
 
   # MySQL Configuration
@@ -63,7 +65,6 @@
         host_all: yes
         password: "{{ mysql_root_password }}"
         login_unix_socket: /var/run/mysqld/mysqld.sock
-        no_log: true
       tags: [ mysql, mysql-root ]
 
     - name: Remove all anonymous user accounts
