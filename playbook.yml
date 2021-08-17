@@ -73,7 +73,7 @@
         name: ''
         state: absent
         login_user: root
-        login_password: "{{ mysql_password }}"
+        login_password: "{{ mysql_root_password }}"
       tags: [ mysql ]
 
     - name: Remove the MySQL test database
