@@ -2,7 +2,7 @@
 # DO Community Playbooks: Wordpress on Ubuntu 18.04 LAMP
 #########################################################
 ---
-- hosts: webserver
+- hosts: hosts
   become: true
   vars_files:
     - vars/default.yml
@@ -14,7 +14,7 @@
 
     - name: Install LAMP Packages
       apt: name={{ item }} update_cache=yes state=latest
-      loop: ['apache2','mysql-server', 'python3-pymysql', 'php', 'php-mysql', 'libapache2-mod-php' ]
+      loop: ['mysql-server', 'python3-pymysql', 'php', 'php-mysql', 'libapache2-mod-php' ]
       tags: [ system ]
 
     - name: Install PHP Extensions
