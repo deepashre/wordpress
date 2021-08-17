@@ -63,7 +63,6 @@
     - name: Set the root password
       mysql_user:
         name: root
-        host_all: yes
         password: "{{ mysql_root_password }}"
         login_unix_socket: /var/run/mysqld/mysqld.sock
       tags: [ mysql, mysql-root ]
