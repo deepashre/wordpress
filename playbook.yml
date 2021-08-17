@@ -79,6 +79,7 @@
         name: ''
         host_all: yes
         state: absent
+        update_password: "on_create"
         login_user: root
         login_password: "password"
       tags: [ mysql ]
