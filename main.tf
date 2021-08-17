@@ -7,7 +7,7 @@ resource "aws_instance" "wp" {
     key_name = "cloud-poc"
     
     tags = {
-    Name = "wp-app"
+    Name = "wp-app-demo"
     }
 
 }
