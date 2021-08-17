@@ -78,7 +78,6 @@
       mysql_user:
         name: ''
         state: absent
-        update_password: "on_create"
         login_user: root
         login_password: "{{ mysql_password }}"
       tags: [ mysql ]
