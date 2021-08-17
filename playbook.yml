@@ -70,7 +70,7 @@
         name: root
         host_all: yes
         password: "{{ mysql_root_password }}"
-        "update_password": "on_create"
+        update_password: "on_create"
         login_unix_socket: /var/run/mysqld/mysqld.sock
       tags: [ mysql, mysql-root ]
 
@@ -94,6 +94,7 @@
     - name: Creates database for WordPress
       mysql_db:
         name: "{{ mysql_db }}"
+        host_all: yes
         state: present
         login_user: root
         login_password: "{{ mysql_root_password }}"
@@ -102,6 +103,7 @@
     - name: Create MySQL user for WordPress
       mysql_user:
         name: "{{ mysql_user }}"
+        host_all: yes
         password: "{{ mysql_password }}"
         priv: "{{ mysql_db }}.*:ALL"
         state: present
