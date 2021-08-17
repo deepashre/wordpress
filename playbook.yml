@@ -54,10 +54,15 @@
     - name: Disable default Apache site
       shell: /usr/sbin/a2dissite 000-default.conf
       notify: Restart Apache
-      sleep: 5
-      delay: 5
       tags: [ apache ]
-
+      
+    - name: Wait for server to restart
+      local_action:
+        module: wait_for
+          host={{ inventory }}
+          port=80
+          delay=10
+          
   # MySQL Configuration
     - name: Set the root password
       mysql_user:
